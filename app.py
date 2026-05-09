@@ -6,7 +6,7 @@ from algoritmos import bubble_sort, selection_sort, insertion_sort, merge_sort_g
 
 st.set_page_config(page_title="Ordenação Visual", layout="centered")
 
-st.markdown("<h2 style='text-align:center'>Desenhe barras verticais (retângulos)</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center'>Crie seu próprio vetor de ordenação desenhando barras verticais</h2>", unsafe_allow_html=True)
 
 st.info("Desenhe retângulos verticais no canvas. Depois clique em 'Extrair barras'.")
 
@@ -23,5 +23,31 @@ canvas_result = st_canvas(
 st.write("")
 area_ordenacao = st.empty()
 
-algoritmos = st.selectbox("Algoritmo", ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort"])    
+algoritmos = st.selectbox("Algoritmo", ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort"])
 
+btn_extract = st.button("Extrair barras")
+start = st.button("Iniciar Ordenação")
+
+def extract_heights(canvas):
+    if not canvas or not canvas.json_data:
+        return []
+    objs = canvas.json_data.get("objects", [])
+    rects = [o for o in objs if o.get("type") == "rect" or ("width" in o and "height" in o)]
+    rects_sorted = sorted(rects, key=lambda o: o.get("left", 0))
+    heights = [int(round(o.get("height", 0))) for o in rects_sorted]
+    return heights
+
+def draw_bars(arr, placeholder):
+    if not arr:
+        placeholder.info("Sem barras para mostrar. Desenhe retângulos e clique em 'Extrair barras'.")
+        return
+    df = pd.DataFrame({"val": arr})
+    placeholder.bar_chart(df)
+
+if btn_extract:
+    heights = extract_heights(canvas_result)
+    if not heights:
+        st.warning("Nenhuma barra detectada. Desenhe retângulos verticais no canvas.")
+    else:
+        st.success(f"{len(heights)} barras extraídas")
+        draw_bars(heights, area_ordenacao)
