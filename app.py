@@ -70,6 +70,6 @@ if start:
 
         for state in gen:
             draw_bars(state, area_ordenacao)
-            time.sleep(Speed)
+            time.sleep(0.5)
         st.success("Ordenação finalizada")
 
