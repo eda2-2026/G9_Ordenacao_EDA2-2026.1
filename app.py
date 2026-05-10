@@ -21,11 +21,11 @@ canvas_result = st_canvas(
 )
 
 st.write("")
+btn_extract = st.button("Extrair barras")
 area_ordenacao = st.empty()
 
 algoritmos = st.selectbox("Algoritmo", ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Shell Sort", "Radix Sort"])
 
-btn_extract = st.button("Extrair barras")
 start = st.button("Iniciar Ordenação")
 
 def extract_heights(canvas):
