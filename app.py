@@ -51,3 +51,25 @@ if btn_extract:
     else:
         st.success(f"{len(heights)} barras extraídas")
         draw_bars(heights, area_ordenacao)
+        
+
+if start:
+    heights = extract_heights(canvas_result)
+    if not heights:
+        st.warning("Nenhuma barra detectada para ordenar.")
+    else:
+        arr = heights.copy()
+        if algoritmos == "Bubble Sort":
+            gen = bubble_sort(arr)
+        elif algoritmos == "Selection Sort":
+            gen = selection_sort(arr)
+        elif algoritmos == "Insertion Sort":
+            gen = insertion_sort(arr)
+        else:
+            gen = merge_sort_gen(arr)
+
+        for state in gen:
+            draw_bars(state, area_ordenacao)
+            time.sleep(Speed)
+        st.success("Ordenação finalizada")
+
