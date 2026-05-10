@@ -10,8 +10,13 @@
 - requeriments.txt
 - Terminal (PowerShell no Windows)
 
-## Instalação
+## Instalação e como rodar
 1. Clone ou baixe o repositorio
 2. Entre na pasta do projeto
 3. No terminal: pip install -r requirements.txt
 4. Para rodar: python -m streamlit run app.py
+5. Desenhe retângulos verticais 
+6. Escolha o algoritmo desejado
+7. Clique em "Extrair barras"
+8. Clique em "Iniciar Ordenação"
+

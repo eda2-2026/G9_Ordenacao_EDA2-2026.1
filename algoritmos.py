@@ -62,3 +62,91 @@ def merge_sort_gen(a):
             yield arr_copy.copy()
         width *= 2
     yield arr_copy
+
+def quick_sort(a):
+    arr = a.copy()
+
+    def _quick_sort(low, high):
+        if low < high:
+            pi = yield from partition(low, high)
+
+            yield from _quick_sort(low, pi - 1)
+            yield from _quick_sort(pi + 1, high)
+
+    def partition(low, high):
+        pivot = arr[high]
+        i = low - 1
+
+        for j in range(low, high):
+            if arr[j] < pivot:
+                i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+                yield arr.copy()
+
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
+        yield arr.copy()
+
+        return i + 1
+
+    yield from _quick_sort(0, len(arr) - 1)
+    yield arr
+
+
+def shell_sort(a):
+    arr = a.copy()
+    n = len(arr)
+
+    gap = n // 2
+
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+                yield arr.copy()
+
+            arr[j] = temp
+            yield arr.copy()
+
+        gap //= 2
+
+    yield arr
+
+
+def radix_sort(a):
+    arr = a.copy()
+
+    def counting_sort(exp):
+        n = len(arr)
+        output = [0] * n
+        count = [0] * 10
+
+        for i in range(n):
+            index = arr[i] // exp
+            count[index % 10] += 1
+
+        for i in range(1, 10):
+            count[i] += count[i - 1]
+
+        i = n - 1
+        while i >= 0:
+            index = arr[i] // exp
+            output[count[index % 10] - 1] = arr[i]
+            count[index % 10] -= 1
+            i -= 1
+
+        for i in range(n):
+            arr[i] = output[i]
+            yield arr.copy()
+
+    max_num = max(arr)
+    exp = 1
+
+    while max_num // exp > 0:
+        yield from counting_sort(exp)
+        exp *= 10
+
+    yield arr

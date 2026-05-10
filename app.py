@@ -2,7 +2,7 @@ import time
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import pandas as pd
-from algoritmos import bubble_sort, selection_sort, insertion_sort, merge_sort_gen
+from algoritmos import bubble_sort, selection_sort, insertion_sort, merge_sort_gen, quick_sort, shell_sort, radix_sort
 
 st.set_page_config(page_title="Ordenação Visual", layout="centered")
 
@@ -23,7 +23,7 @@ canvas_result = st_canvas(
 st.write("")
 area_ordenacao = st.empty()
 
-algoritmos = st.selectbox("Algoritmo", ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort"])
+algoritmos = st.selectbox("Algoritmo", ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Shell Sort", "Radix Sort"])
 
 btn_extract = st.button("Extrair barras")
 start = st.button("Iniciar Ordenação")
@@ -65,8 +65,14 @@ if start:
             gen = selection_sort(arr)
         elif algoritmos == "Insertion Sort":
             gen = insertion_sort(arr)
-        else:
+        elif algoritmos == "Merge Sort":
             gen = merge_sort_gen(arr)
+        elif algoritmos == "Quick Sort":
+            gen = quick_sort(arr)
+        elif algoritmos == "Shell Sort":
+            gen = shell_sort(arr)
+        else:
+            gen = radix_sort(arr)
 
         for state in gen:
             draw_bars(state, area_ordenacao)
