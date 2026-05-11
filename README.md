@@ -26,3 +26,10 @@ Entre os algoritmos implementados estão Bubble Sort, Selection Sort, Insertion 
 7. Clique em "Extrair barras"
 8. Clique em "Iniciar Ordenação"
 
+## Explicação visual
+
+![Página inicial](imagens/imagem1.png)
+![Desenhe os retângulos](imagens/imagem2.png)
+![Escolha o algoritmo](imagens/imagem3.png)
+![Extrair barras](imagens/imagem4.png)
+![Iniciar ordernação](imagens/imagem5.png)
