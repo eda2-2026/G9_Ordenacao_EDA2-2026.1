@@ -12,7 +12,6 @@ Este projeto tem como objetivo demonstrar visualmente o funcionamento de algorit
 Entre os algoritmos implementados estão Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Shell Sort e Radix Sort. Durante a execução, o sistema atualiza graficamente cada etapa da ordenação, permitindo uma melhor compreensão do comportamento e da lógica de cada algoritmo.
 
 
-
 ## Pré-requisitos
 - requeriments.txt
 - Terminal (PowerShell no Windows)
