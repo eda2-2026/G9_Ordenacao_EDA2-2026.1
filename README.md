@@ -32,10 +32,10 @@ Entre os algoritmos implementados estão Bubble Sort, Selection Sort, Insertion 
 ![Página inicial](imagens/imagem1.png)
 
 ### Desenhe os retângulos
-![Desenhe os retângulos](imagens/imagem2.png)
+![Desenhe os retângulos](imagens/imagem3.png)
 
 ### Escolha o algoritmo
-![Escolha o algoritmo](imagens/imagem3.png)
+![Escolha o algoritmo](imagens/imagem2.png)
 
 ### Extrair barras
 ![Extrair barras](imagens/imagem4.png)
