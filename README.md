@@ -11,6 +11,13 @@ Este projeto tem como objetivo demonstrar visualmente o funcionamento de algorit
 
 Entre os algoritmos implementados estão Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Shell Sort e Radix Sort. Durante a execução, o sistema atualiza graficamente cada etapa da ordenação, permitindo uma melhor compreensão do comportamento e da lógica de cada algoritmo.
 
+## Deploy do app
+
+https://algoritmos-ordenacao.streamlit.app/
+
+## Vídeo de apresentação
+
+[![Assista ao vídeo](https://img.youtube.com/vi/xlwVl8RO_LA/maxresdefault.jpg)](https://youtu.be/xlwVl8RO_LA)
 
 ## Pré-requisitos
 - requeriments.txt
